@@ -22,7 +22,7 @@
         />
         <img
           th:unless="${(post != null && post.spec.cover != null) || not #lists.isEmpty(theme.config.common.backgroundImgs)}"
-          th:src="@{/assets/img/imbg.avif}"
+          th:src="@{'/themes/theme-Ideaflow/assets/img/imbg.avif'}"
           class="h-full w-full object-cover"
         />
       </div>

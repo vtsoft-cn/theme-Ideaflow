@@ -54,7 +54,7 @@
         />
         <img
           th:unless="${(not #lists.isEmpty(theme.config.common.mobileBackgroundVideos) and theme.config.common.mobileBackgroundVideos[0].url != '') or (not #lists.isEmpty(theme.config.common.mobileBackgroundImgs) and theme.config.common.mobileBackgroundImgs[0].url != '')}"
-          th:src="@{/assets/img/imbg.avif}"
+          th:src="@{'/themes/theme-Ideaflow/assets/img/imbg.avif'}"
           class="h-full w-full object-cover"
         />
       </div>
