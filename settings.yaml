@@ -130,7 +130,7 @@ spec:
           label: PC端背景大图
           value: []
           max: 5
-          min: 1
+          min: 0
           help: "当没有配置视频时显示PC端背景图片"
           children:
             - $formkit: attachment
@@ -144,7 +144,7 @@ spec:
           label: 手机端背景大图
           value: [ ]
           max: 5
-          min: 1
+          min: 0
           help: "当没有配置手机端视频时显示手机端端背景图片"
           children:
             - $formkit: attachment
