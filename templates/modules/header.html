@@ -40,7 +40,7 @@
           <div class="flex flex-shrink-0">
             <a th:href="@{/}" class="flex transform items-center transition-transform duration-200 hover:scale-105">
               <img
-                th:src="${site.logo}"
+                th:src="${site.logo ?: '/themes/theme-Ideaflow/assets/img/default-avatar.png'}"
                 alt="网站Logo"
                 class="h-8 w-8 rounded-full object-cover shadow-lg ring-2 ring-white/50 dark:shadow-gray-700 dark:ring-gray-800/50"
               />
