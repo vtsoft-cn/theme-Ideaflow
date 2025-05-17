@@ -60,7 +60,7 @@
         </h2>
 
         <!-- 摘要 -->
-        <p class="mb-4 line-clamp-1 text-sm text-gray-600 dark:text-gray-400" th:text="${post.status.excerpt}"></p>
+        <p class="mb-4 line-clamp-1 text-sm text-gray-600 dark:text-gray-400" th:text="${#strings.isEmpty(post.status.excerpt) ? '暂无摘要' : post.status.excerpt}"></p>
 
         <!-- 元信息 -->
         <div class="mb-4 flex items-center space-x-4 text-xs text-gray-500 dark:text-gray-400">
@@ -86,6 +86,13 @@
         <!-- 标签列表 -->
         <div class="flex flex-wrap gap-2">
         <span
+            th:if="${#lists.isEmpty(post.tags)}"
+            class="bg-gray-100 text-gray-400 flex items-center rounded-full px-2 py-1 text-xs font-medium"
+          >
+          <span class="icon-[tabler--tag] mr-1 h-3 w-3 opacity-70"></span>
+          <span>暂无标签</span>
+          </span>
+          <span
           th:each="tag : ${post.tags}"
           class="bg-primary-50 text-primary-600 dark:bg-primary-900/10 dark:text-primary-300 hover:bg-primary-100 dark:hover:bg-primary-900/20 flex items-center rounded-full px-2 py-1 text-xs font-medium transition-colors"
         >
