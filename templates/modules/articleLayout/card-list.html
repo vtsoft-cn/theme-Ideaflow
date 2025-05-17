@@ -1,10 +1,11 @@
 <!-- 文章卡片列表 -->
-<article th:each="post : ${posts.items}"  >
+<article th:each="post : ${posts.items}">
 
-  <div class="rounded-lg overflow-hidden relative block cursor-pointer border border-gray-100 shadow-sm transition-all duration-300 hover:scale-[1.02] hover:shadow-xl dark:border-gray-700 dark:bg-gray-800">
+  <div
+    class="rounded-lg overflow-hidden relative block cursor-pointer border border-gray-100 shadow-sm transition-all duration-300 hover:scale-[1.02] hover:shadow-xl dark:border-gray-700 dark:bg-gray-800">
     <a
       th:href="${post.status.permalink}"
-
+      class="group relative flex h-full flex-col overflow-hidden rounded-lg bg-white dark:bg-gray-8"
     >
       <!-- 封面图片 -->
       <div class="relative flex h-48 items-center justify-center overflow-hidden rounded-br-lg">
@@ -100,7 +101,7 @@
       ></div>
     </a>
   </div>
-  
+
 
 </article>
 
