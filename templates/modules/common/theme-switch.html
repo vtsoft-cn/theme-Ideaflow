@@ -30,12 +30,23 @@
          if (savedTheme) {
            this.applyTheme(savedTheme);
          } else {
-           // 根据当前时间自动切换主题
            const hour = new Date().getHours();
            if (hour >= 7 && hour < 18) {
-             this.applyTheme('light');
+              // 白天时间 根据当前季节自动切换主题
+              const month = new Date().getMonth(); // 0-11
+              let seasonTheme = 'light';
+              if (month >= 2 && month <= 4) {
+                seasonTheme = 'spring'; // 3-5月
+              } else if (month >= 5 && month <= 7) {
+                seasonTheme = 'summer'; // 6-8月
+              } else if (month >= 8 && month <= 10) {
+                seasonTheme = 'autumn'; // 9-11月
+              } else {
+                seasonTheme = 'winter'; // 12-2月
+              }
+              this.applyTheme(seasonTheme);
            } else {
-             this.applyTheme('dark');
+              this.applyTheme('dark');
            }
          }
        }
