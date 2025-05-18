@@ -32,6 +32,34 @@
           }
         });
       });
+      var xhr = new XMLHttpRequest();
+      xhr.open('get', 'https://v1.jinrishici.com/all.json');
+      xhr.onreadystatechange = function () {
+        if (xhr.readyState === 4) {
+          var data = JSON.parse(xhr.responseText);
+          var poetryWebContent = document.getElementById('poetry-web-content');
+          var poetryWebOriginAuthor = document.getElementById('poetry-web-origin-author');
+          var poetryMobileContent = document.getElementById('poetry-mobile-content');
+          var poetryMobileOriginAuthor = document.getElementById('poetry-mobile-origin-author');
+          function typeWriter(element, text, i, callback) {
+            if (i < text.length) {
+              element.innerText = text.substring(0, i + 1);
+              setTimeout(function () {
+                typeWriter(element, text, i + 1, callback);
+              }, 60);
+            } else if (callback) {
+              callback();
+            }
+          }
+          typeWriter(poetryWebContent, data.content, 0, function () {
+            typeWriter(poetryWebOriginAuthor, `《${data.origin}》 - ${data.author}`, 0);
+          });
+          typeWriter(poetryMobileContent, data.content, 0, function () {
+            typeWriter(poetryMobileOriginAuthor, `《${data.origin}》 - ${data.author}`, 0);
+          });
+        }
+      };
+      xhr.send();
     </script>
 
     <nav class="mx-auto">
